@@ -5,6 +5,7 @@
     <title>{{ user.username }}'s Watchlist</title>
 </head>
 <body>
+{# url_for('index')  url_for() 是flask内置模板全局函数，在模板中可直接使用 #}
 <a href="{{ url_for('index') }}">&larr; Return</a>
 <h2>{{ user.username }}</h2>
 {% if user.bio %}
@@ -13,6 +14,7 @@
     <i>This user has not provided a bio.</i>
 {% endif %}
 {# Below is the movie list (this is comment) #}
+{# movies|length 相当于 len(movies) #}
 <h5>{{ user.username }}'s Watchlist ({{ movies|length }}):</h5>
 <ul>
     {% for movie in movies %}

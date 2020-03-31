@@ -1,14 +1,21 @@
+{# 基模板 #}
 <!DOCTYPE html>
 <html>
 <head>
+    {# 定义块 block，在子模版中定义同名块来执行继承  block可嵌套 #}
     {% block head %}
+        {# head标签内容 #}
         <meta charset="utf-8">
         <title>{% block title %}Template - HelloFlask{% endblock %}</title>
+        {# title标签内容 #}
         <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
         {% block styles %}
+            {# CSS内容 #}
+            {# 使用url_for() 获取静态文件的URL filename为相对于static目录的路径 #}
             <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css' ) }}">
         {% endblock %}
     {% endblock %}
+    {# endblock head 避免混乱 块名需一致 #}
 </head>
 <body>
 <nav>
@@ -16,13 +23,18 @@
 </nav>
 
 <main>
+    {# get_flashed_messages() 用于在模板里获取消息 #}
+    {# get_flashed_messages() 被调用后清空session中的所有消息 #}
     {% for message in get_flashed_messages() %}
         <div class="alert">{{ message }}</div>
+        {# 在static/styles.css 中定义了一些规则 #}
     {% endfor %}
     {% block content %}{% endblock %}
+    {# 页面主体内容 #}
 </main>
 <footer>
     {% block footer %}
+        {# 页脚部分 #}
         <small> &copy; 2018 <a href="http://greyli.com" title="Written by Grey Li">Grey Li</a> /
             <a href="https://github.com/greyli/helloflask" title="Fork me on GitHub">GitHub</a> /
             <a href="http://helloflask.com" title="A HelloFlask project">HelloFlask</a>
@@ -30,5 +42,6 @@
     {% endblock %}
 </footer>
 {% block scripts %}{% endblock %}
+{# JavaScript内容 #}
 </body>
 </html>

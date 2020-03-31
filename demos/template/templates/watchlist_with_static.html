@@ -4,6 +4,7 @@
 
 {% block content %}
 <h2>
+    {# url_for('static', filename='avatar.jpg') /static/avatar.jpg #}
     <img src="{{ url_for('static', filename='avatar.jpg') }}" width="50"> {{ user.username }}
 </h2>
 {% if user.bio %}

@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{# 使用extends标签声明扩展基模版，其必须为子模版第一个标签 #}
 {% from 'macros.html' import qux %}
+{# 使用宏时 需要像python 一样 import，然后作为函数调用，传入必要参数 #}
+{# 上下文只包含 内置及自定义 全局函数、过滤器、测试器 #}
+{# 使用其他需 from 'macros.html' import qux with context #}
 
 {% block content %}
+{# 创建同名块时，子块会覆盖父块 #}
+{# 如要追加内容 添加 {{ super() }} #}
 {% set name='baz' %}
 <h1>Template</h1>
 <ul>

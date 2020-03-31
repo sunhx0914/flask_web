@@ -1,7 +1,10 @@
+{# 宏 p88 功能上等同于 局部模板 #}
+{# 开始标签中定义宏的名称和接收的参数 #}
 {% macro qux(amount=1) %}
     {% if amount == 1 -%}
         I am qux.
     {%- elif amount > 1 -%}
+        {# 左侧的- 删除该语句前的空行；右侧 语句后 #}
         We are quxs.
     {%- endif %}
 {% endmacro %}
@@ -18,3 +21,5 @@
         <link rel="icon" href="{{ filename_or_url }}">
     {%- endif %}
 {% endmacro %}
+{# 导入宏后 加载示例 static_file('css', '/css/bootstrap.min.css') #}
+{# 或 从 CDN的URL 加载 static_file('css', 'CDN的URL', local=False) #}
