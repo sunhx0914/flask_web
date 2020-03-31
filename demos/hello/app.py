@@ -42,7 +42,7 @@ def hello():
     """Just say hello."""
     click.echo('Hello, Human!')
 
-# 也可以这样设置名字
+# 也可以这样设置命令
 @app.cli.command('say-hello')
 def hello_say():
     """Just say hello."""
