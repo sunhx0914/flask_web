@@ -15,5 +15,7 @@
 {% block scripts %}
     {{ super() }}
     {{ ckeditor.load() }}
+    {# 渲染 ckeditor 需js脚本，ckeditor.load()加载资源 p131 #}
     {{ ckeditor.config(name='body') }}
+    {# 使用配置变量修改后，需加载配置 name属性值为对应表单类属性名，再加载资源后调用 #}
 {% endblock %}

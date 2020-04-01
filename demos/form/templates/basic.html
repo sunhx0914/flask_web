@@ -3,13 +3,19 @@
 {% block content %}
 <h2>Basic Form</h2>
 
+{# form 属性 action-目标URL,默认当前 method-GET/POST enctype-编码类型 #}
 <form method="post">
+    {# 必须手动渲染 csrf_token，以使表单验证通过 #}
     {{ form.csrf_token }}
+    {# 通过调用属性即可获得字段对应HTML代码，需要参数 也可添加括号 #}
     {{ form.username.label }}<br>
     {{ form.username }}<br>
     {% if form.username.errors %}
+        {# errors属性 匹配作为表单字段的类属性到对应的错误消息列表的字典 #}
+        {# form.字段名.errors #}
         {% for message in form.username.errors %}
         <small class="error">{{ message }}</small><br>
+        {# 添加error类 并改为红色 CSS中改了 但chrome显示不正常#}
         {% endfor %}
     {% endif %}
     {{ form.password.label }}<br>

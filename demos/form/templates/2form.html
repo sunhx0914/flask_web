@@ -8,6 +8,7 @@
 <form method="post">
     {{ signin_form.csrf_token }}
     {{ form_field(signin_form.username) }}
+    {# 类属性传入宏 完成渲染 #}
     {{ form_field(signin_form.password) }}
     {{ signin_form.submit1 }}
 </form>

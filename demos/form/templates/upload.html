@@ -5,6 +5,7 @@
 <h2>File Upload Form</h2>
 
 <form method="post" enctype="multipart/form-data">
+    {# 修改enctype，否则将文件名作为表单数据 #}
     {{ form.csrf_token }}
     {{ form_field(form.photo) }}
     {{ form.submit }}

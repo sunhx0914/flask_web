@@ -23,6 +23,7 @@
 </nav>
 
 <main>
+    {# for 遍历 #}
     {% for message in get_flashed_messages() %}
         <div class="alert">
             {{ message }}

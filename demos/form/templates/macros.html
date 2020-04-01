@@ -1,7 +1,11 @@
+{# 使用宏渲染表单 #}
 {% macro form_field(field) %}
     {{ field.label }}<br>
+    {# label标签 #}
     {{ field(**kwargs) }}<br>
+    {# 表单字段 #}
     {% if field.errors -%}
+        {# 错误消息列表 #}
         {% for error in field.errors -%}
             <small class="error">{{ error }}</small><br>
         {%- endfor %}

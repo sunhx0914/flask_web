@@ -7,6 +7,7 @@
 {% if session.filenames %}
 {% for filename in session.filenames %}
 <a href="{{ url_for('get_file', filename=filename) }}" target="_blank">
+    {# 传入的文件名作为URL变量 使用get_file 获取文件URL 作为img的src属性值 #}
     <img src="{{ url_for('get_file', filename=filename) }}">
 </a>
 {% endfor %}

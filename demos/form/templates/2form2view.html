@@ -4,6 +4,7 @@
 {% block content %}
 <h2>Multiple Form in One Page with Multiple View</h2>
 
+{# 表单提交请求的目标URL 通过action属性设置 #}
 <h3>Login Form</h3>
 <form method="post" action="{{ url_for('handle_signin') }}">
     {{ signin_form.csrf_token }}
