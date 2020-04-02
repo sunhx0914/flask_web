@@ -1,7 +1,11 @@
 {% macro form_field(field) %}
     {{ field.label }}<br>
     {% if field.flags.required %}
+        {# 设置了required标志，如DataRequired和InputRequired #}
+        {# field.flags.required是布尔值 #}
         {{ field(required='required', **kwargs) }}<br>
+        {# HTML 5 <input> required 属性规定必需在提交之前填写输入字段#}
+        {# 如果使用该属性，则字段是必填（或必选）的。 #}
     {% else %}
         {{ field(**kwargs) }}<br>
     {% endif %}

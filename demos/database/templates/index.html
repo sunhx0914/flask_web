@@ -3,16 +3,23 @@
 {% block content %}
     <h1>Notebook</h1>
     <a href="{{ url_for('new_note') }}">New Note</a>
+    {# 指向创建新笔记页面 #}
 
     <h4>{{ notes|length }} notes:</h4>
+    {# length 过滤器 p83 #}
     {% for note in notes %}
         <div class="note">
             <p>{{ note.body }}</p>
+            {# 这之前是 显示笔记 #}
             <a class='btn' href="{{ url_for('edit_note', note_id=note.id) }}">Edit</a>
+            {# 添加编辑连接 用来方法编辑页面 URL中需传入当前note对象的id #}
             <form method="post" action="{{ url_for('delete_note', note_id=note.id) }}">
                 {{ form.csrf_token }}
                 {{ form.submit(class='btn') }}
             </form>
+            {# 渲染删除表单 这个表单的目的是防范CSRF攻击 p156 #}
+            {# 提交后会执行action 的URL #}
+            {# class='btn' 是为了是 <a> 和 按钮 有相同样式 #}
         </div>
     {% endfor %}
 {% endblock %}

@@ -9,6 +9,7 @@
 <form method="post">
     {{ form.csrf_token }}
     {{ form_field(form.body, rows=5, cols=50) }}
+    {# rows, cols控制 textarea 大小 #}
     {{ form.submit }}<br>
 </form>
 {% endblock %}
