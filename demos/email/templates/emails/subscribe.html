@@ -4,5 +4,6 @@
     <p>Enjoy the reading :)</p>
     <small style="color: #868e96;">
         Click here to <a href="{{ url_for('unsubscribe', _external=True) }}">unsubscribe</a>.
+        {# url_for 中 _external=True 来生成完整的外部URL 链接/图片 #}
     </small>
 </div>
