@@ -1,7 +1,7 @@
 .idea/*
 *.py[cod]
 
-
+.env
 
 .vscode/*
 !.vscode/settings.json
