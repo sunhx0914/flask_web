@@ -31,5 +31,5 @@ wtforms==2.2.1
 # dev
 argh==0.26.2
 pathtools==0.1.2
-pyyaml==5.1
+pyyaml==5.4
 watchdog==0.8.3
